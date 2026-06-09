@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>РАСКАЧКА С ГОХОЙ — онлайн-клуб</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Georgia', serif; background: #0d0d0d; color: #f5f0eb; }
+
+    /* NAV */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 60px; border-bottom: 1px solid #2a2a2a; }
+    nav .logo { font-size: 18px; font-weight: bold; letter-spacing: 2px; color: #e8c9a0; }
+    nav a { color: #f5f0eb; text-decoration: none; margin-left: 30px; font-size: 14px; opacity: 0.8; }
+    nav a:hover { opacity: 1; color: #e8c9a0; }
+
+    /* HERO */
+    .hero { text-align: center; padding: 100px 60px 80px; }
+    .hero h1 { font-size: 56px; font-weight: normal; letter-spacing: 4px; color: #e8c9a0; line-height: 1.2; }
+    .hero p { font-size: 20px; margin-top: 24px; opacity: 0.8; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .hero .cta { display: inline-block; margin-top: 40px; background: #e8c9a0; color: #0d0d0d; padding: 16px 40px; font-size: 16px; letter-spacing: 2px; text-decoration: none; font-weight: bold; }
+    .hero .cta:hover { background: #d4b48c; }
+
+    /* ABOUT */
+    .section { padding: 80px 60px; max-width: 1100px; margin: 0 auto; }
+    .section h2 { font-size: 32px; font-weight: normal; letter-spacing: 3px; color: #e8c9a0; margin-bottom: 40px; text-align: center; }
+    .about-text { font-size: 18px; line-height: 1.9; opacity: 0.85; text-align: center; max-width: 750px; margin: 0 auto; }
+
+    /* FOR WHOM */
+    .for-whom { background: #141414; padding: 80px 60px; }
+    .for-whom-inner { max-width: 1100px; margin: 0 auto; }
+    .for-whom h2 { font-size: 32px; font-weight: normal; letter-spacing: 3px; color: #e8c9a0; margin-bottom: 40px; text-align: center; }
+    .pains { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+    .pain-card { border: 1px solid #2a2a2a; padding: 28px; }
+    .pain-card p { font-size: 16px; line-height: 1.7; opacity: 0.85; }
+
+    /* WHAT'S INSIDE */
+    .inside { padding: 80px 60px; max-width: 1100px; margin: 0 auto; }
+    .inside h2 { font-size: 32px; font-weight: normal; letter-spacing: 3px; color: #e8c9a0; margin-bottom: 40px; text-align: center; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .feature { border-left: 3px solid #e8c9a0; padding-left: 20px; }
+    .feature h3 { font-size: 16px; letter-spacing: 1px; color: #e8c9a0; margin-bottom: 10px; }
+    .feature p { font-size: 15px; opacity: 0.8; line-height: 1.7; }
+
+    /* TARIFFS */
+    .tariffs { background: #141414; padding: 80px 60px; }
+    .tariffs-inner { max-width: 1100px; margin: 0 auto; }
+    .tariffs h2 { font-size: 32px; font-weight: normal; letter-spacing: 3px; color: #e8c9a0; margin-bottom: 50px; text-align: center; }
+    .tariff-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .tariff-card { border: 1px solid #2a2a2a; padding: 40px 32px; position: relative; }
+    .tariff-card.featured { border-color: #e8c9a0; }
+    .tariff-card .badge { position: absolute; top: -14px; left: 32px; background: #e8c9a0; color: #0d0d0d; font-size: 12px; padding: 4px 14px; letter-spacing: 1px; font-weight: bold; }
+    .tariff-card h3 { font-size: 22px; letter-spacing: 2px; color: #e8c9a0; margin-bottom: 8px; }
+    .tariff-card .price { font-size: 28px; margin: 20px 0 8px; color: #fff; }
+    .tariff-card .price-rub { font-size: 16px; opacity: 0.6; margin-bottom: 24px; }
+    .tariff-card ul { list-style: none; }
+    .tariff-card ul li { font-size: 15px; opacity: 0.85; line-height: 1.6; padding: 6px 0; border-bottom: 1px solid #1e1e1e; }
+    .tariff-card ul li::before { content: "✓ "; color: #e8c9a0; }
+    .tariff-card .buy-btn { display: block; text-align: center; margin-top: 30px; background: transparent; border: 1px solid #e8c9a0; color: #e8c9a0; padding: 14px; font-size: 14px; letter-spacing: 2px; text-decoration: none; cursor: pointer; }
+    .tariff-card.featured .buy-btn { background: #e8c9a0; color: #0d0d0d; font-weight: bold; }
+    .tariff-card .buy-btn:hover { background: #e8c9a0; color: #0d0d0d; }
+
+    /* FOOTER */
+    footer { padding: 60px; border-top: 1px solid #2a2a2a; text-align: center; }
+    footer p { opacity: 0.5; font-size: 14px; line-height: 2; }
+    footer a { color: #e8c9a0; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">РАСКАЧКА С ГОХОЙ</div>
+  <div>
+    <a href="#about">О клубе</a>
+    <a href="#inside">Наполнение</a>
+    <a href="#tariffs">Тарифы</a>
+    <a href="#contacts">Контакты</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>РАСКАЧКА<br>С ГОХОЙ</h1>
+  <p>Живое онлайн-пространство для женщин, которые хотят раскрыться — через тело, движение и практику.</p>
+  <a href="#tariffs" class="cta">ВЫБРАТЬ ТАРИФ</a>
+</div>
+
+<section id="about">
+  <div class="section">
+    <h2>ЧТО ТАКОЕ РАСКАЧКА</h2>
+    <p class="about-text">
+      Это не курс и не марафон. Это живой клуб по подписке — ритм, который ты поддерживаешь каждый месяц. Библиотека практик, еженедельные живые встречи с Гохой, гостевые эфиры с экспертами и сообщество женщин, которые идут рядом.
+    </p>
+  </div>
+</section>
+
+<section id="for-whom">
+  <div class="for-whom">
+    <div class="for-whom-inner">
+      <h2>ДЛЯ ТЕБЯ, ЕСЛИ</h2>
+      <div class="pains">
+        <div class="pain-card"><p>Чувствуешь зажимы в теле и хочешь от них избавиться</p></div>
+        <div class="pain-card"><p>Хочешь раскрыться, но не знаешь с чего начать</p></div>
+        <div class="pain-card"><p>Сложно расслабиться — тело держит напряжение</p></div>
+        <div class="pain-card"><p>Не хватает уверенности в себе и своём теле</p></div>
+        <div class="pain-card"><p>Хочешь живого сообщества рядом — без осуждения</p></div>
+        <div class="pain-card"><p>Устала от курсов — нужен постоянный поддерживающий ритм</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="inside">
+  <div class="inside">
+    <h2>ЧТО ВНУТРИ КЛУБА</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>БИБЛИОТЕКА ПРАКТИК</h3>
+        <p>Форматы 10, 20 и 40 минут: таз, фитнес-камасутра, расслабление, вакуум живота. Доступно 24/7.</p>
+      </div>
+      <div class="feature">
+        <h3>ЖИВЫЕ ВСТРЕЧИ С ГОХОЙ</h3>
+        <p>1 живое событие в неделю — 4 встречи в месяц. Практика вместе, в реальном времени.</p>
+      </div>
+      <div class="feature">
+        <h3>ГОСТЕВОЙ ЭФИР</h3>
+        <p>Каждый месяц — приглашённый эксперт. Новые темы, новые инструменты.</p>
+      </div>
+      <div class="feature">
+        <h3>«СПРОСИТЬ БЕЗ СТЫДА»</h3>
+        <p>Асинхронная рубрика — задавай вопросы о теле, сексуальности и отношениях без осуждения.</p>
+      </div>
+      <div class="feature">
+        <h3>ЧЕЛЛЕНДЖИ И ДНЕВНИК</h3>
+        <p>Практические задания, которые удерживают ритм. Твой личный дневник прогресса.</p>
+      </div>
+      <div class="feature">
+        <h3>ЧАТ СООБЩЕСТВА</h3>
+        <p>Живое общение с участницами клуба. Поддержка, вдохновение, общий путь.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tariffs">
+  <div class="tariffs">
+    <div class="tariffs-inner">
+      <h2>ТАРИФЫ</h2>
+      <div class="tariff-cards">
+
+        <div class="tariff-card">
+          <h3>КЛУБ ОНЛАЙН</h3>
+          <div class="price">12 000 ₸ / мес</div>
+          <div class="price-rub">≈ 2 500 ₽ / мес</div>
+          <ul>
+            <li>Библиотека практик</li>
+            <li>4 живые встречи в месяц</li>
+            <li>Гостевой эфир</li>
+            <li>Рубрика «Спросить без стыда»</li>
+            <li>Челленджи и дневник</li>
+            <li>Доступ в чат сообщества</li>
+          </ul>
+          <a href="#" class="buy-btn">ВСТУПИТЬ В КЛУБ</a>
+        </div>
+
+        <div class="tariff-card featured">
+          <div class="badge">ПОПУЛЯРНЫЙ</div>
+          <h3>БЛИЗКИЙ КРУГ</h3>
+          <div class="price">70 000 ₸ / мес</div>
+          <div class="price-rub">≈ 13 900 ₽ / мес</div>
+          <ul>
+            <li>Всё из тарифа «Клуб Онлайн»</li>
+            <li>Личные видеоразборы с Гохой</li>
+            <li>Личный чат с Гохой</li>
+            <li>Приоритетный доступ к новым форматам</li>
+          </ul>
+          <a href="#" class="buy-btn">ВСТУПИТЬ В КРУГ</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="section">
+    <h2>КОНТАКТЫ</h2>
+    <p class="about-text" style="opacity:0.7; font-size:16px;">
+      По всем вопросам пишите в Telegram или на почту.<br><br>
+      <a href="https://t.me/" style="color:#e8c9a0;">Telegram</a>
+    </p>
+  </div>
+</section>
+
+<footer id="footer">
+  <p>
+    <a href="oferta.html">Договор оферты</a> &nbsp;·&nbsp;
+    <a href="privacy.html">Политика конфиденциальности</a>
+  </p>
+  <p style="margin-top:16px;">© 2026 РАСКАЧКА С ГОХОЙ. Все права защищены.</p>
+</footer>
+
+</body>
+</html>
